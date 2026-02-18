@@ -1,1 +1,38 @@
+<script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
 <h1>ハロー©</h1>
+
+<p><button id="ajax">Ajax通信</button></p>
+
+  <script>
+    $(function(){
+      // 「Ajax通信」ボタンをクリックしたら発動
+      $('#ajax').on('click',function(){
+        $.ajax({
+          url:'https://script.google.com/macros/s/AKfycby1aXeJrKE9-Ro5YVyN-GnkXwe1ujrcrmrtPti409l90YssQ9JbdMsXGjFhfNXwcj2m/exec?type=url',
+          type:'GET',
+          data:{
+            'length': 3
+          }
+        })
+        // Ajax通信が成功したら発動
+        .done( (data) => {
+          alert(data);
+        })
+        // Ajax通信が失敗したら発動
+        .fail( (jqXHR, textStatus, errorThrown) => {
+          alert('Ajax通信に失敗しました。');
+          console.log("jqXHR          : " + jqXHR.status); // HTTPステータスを表示
+          console.log("textStatus     : " + textStatus);    // タイムアウト、パースエラーなどのエラー情報を表示
+          console.log("errorThrown    : " + errorThrown.message); // 例外情報を表示
+        })
+        // Ajax通信が成功・失敗のどちらでも発動
+        .always( (data) => {
+          if($('#answer').val() == '小松菜奈'){
+            console.log('あなたは正しい');
+          }else{
+            console.log('あなたは間違っている');
+          }
+        });
+      });
+    });
+  </script>
