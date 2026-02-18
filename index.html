@@ -2,7 +2,7 @@
 <html>
 <head>
     <base target="_top" />
-    <title>02/18 17:54</title>
+    <title>02/18-18:04</title>
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
@@ -28,8 +28,9 @@
         })
         // Ajax通信が成功したら発動
         .done( (data) => {
-          //alert(JSON.stringify(data, null, 2));
-          location.href=data.url;
+          /  /alert(JSON.stringify(data, null, 2));
+            //location.href=data.url;
+            window.open(data.url, '_blank', 'noopener');
         })
         // Ajax通信が失敗したら発動
         .fail( (jqXHR, textStatus, errorThrown) => {
