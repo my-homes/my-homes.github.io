@@ -1,9 +1,9 @@
 <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
-<h1>ハロー© 011</h1>
-
-<p><button id="ajax">Ajax通信</button></p>
-
-  <script>
+<h1>ハロー© 2026-0218-1732</h1>
+<p>
+  <button id="ajax">Ajax通信</button>
+</p>
+<script>
     $(function(){
       // 「Ajax通信」ボタンをクリックしたら発動
       $('#ajax').on('click',function(){
@@ -18,7 +18,7 @@
         })
         // Ajax通信が成功したら発動
         .done( (data) => {
-          alert(JSON.stringify(data, null, 2));
+          //alert(JSON.stringify(data, null, 2));
           location.href=data.url;
         })
         // Ajax通信が失敗したら発動
@@ -38,4 +38,4 @@
         });
       });
     });
-  </script>
+</script>
