@@ -1,58 +1,68 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Random 02/19-00:21</title>
+    <title>Random 02/19-00:27</title>
     <link rel="stylesheet" href="jquery-ajax.css" />
-    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<h1>Random Youtube Playlist</h1>
+    <h1>Random Youtube Playlist</h1>
 
-<style>
-.example{
-    font-size: 400%;
-}
-</style>
+    <style>
+        .example {
+            font-size: 400%;
+        }
+    </style>
 
-<p><button id="ajax05" class="example">Open Random Playlist.</button></p>
-<p><button id="ajax10" class="example">Open Random Playlist.</button></p>
+    <p><button id="ajax03" class="example">Random Playlist #03</button></p>
+    <p><button id="ajax05" class="example">Random Playlist #05</button></p>
+    <p><button id="ajax10" class="example">Random Playlist #10</button></p>
 
-<div id="overlay">
-  <div class="cv-spinner">
-    <span class="spinner"></span>
-  </div>
-</div>
-<script>
-    $(function() {
-        $(document).ajaxSend(function() {
-            $("#overlay").fadeIn(300);
-        });
-        function callAjax(len) {
-            $.ajax({
-                //crossDomain: true,
-                url:'https://script.google.com/macros/s/AKfycby3PLSwXczX9DhNcbhlEhdJ0_Qc_4KiOZ2zu1PgzoUV9IPod7uBX8miQquPrp0KVJfQ/exec',
-                type:'GET',
-                dataType: 'jsonp', // クロスドメイン制限を避けるため
-                data:{　'length': len　}
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $(document).ajaxSend(function () {
+                $("#overlay").fadeIn(300);
+            });
+            function callAjax(len) {
+                $.ajax({
+                    //crossDomain: true,
+                    url: 'https://script.google.com/macros/s/AKfycby3PLSwXczX9DhNcbhlEhdJ0_Qc_4KiOZ2zu1PgzoUV9IPod7uBX8miQquPrp0KVJfQ/exec',
+                    type: 'GET',
+                    dataType: 'jsonp', // クロスドメイン制限を避けるため
+                    data: { 'length': len }
                 })
-                .done( (data) => {
-                    window.open(data.url, '_blank', 'noopener');})
-                .fail( (jqXHR, textStatus, errorThrown) => {
-                    alert('Ajax通信に失敗しました。');
-                    console.log("jqXHR          : " + jqXHR.status); // HTTPステータスを表示
-                    console.log("textStatus     : " + textStatus);    // タイムアウト、パースエラーなどのエラー情報を表示
-                    console.log("errorThrown    : " + errorThrown.message); // 例外情報を表示
+                    .done((data) => {
+                        window.open(data.url, '_blank', 'noopener');
                     })
-                .always( (data) => {
-                    setTimeout(function() { $("#overlay").fadeOut(300); }, 500); });
-        };
-        $('#ajax05').on('click',function() {
-            callAjax(5);
+                    .fail((jqXHR, textStatus, errorThrown) => {
+                        alert('Ajax通信に失敗しました。');
+                        console.log("jqXHR          : " + jqXHR.status); // HTTPステータスを表示
+                        console.log("textStatus     : " + textStatus);    // タイムアウト、パースエラーなどのエラー情報を表示
+                        console.log("errorThrown    : " + errorThrown.message); // 例外情報を表示
+                    })
+                    .always((data) => {
+                        setTimeout(function () { $("#overlay").fadeOut(300); }, 500);
+                    });
+            };
+            $('#ajax03').on('click', function () {
+                callAjax(3);
+            });
+            $('#ajax05').on('click', function () {
+                callAjax(5);
+            });
+            $('#ajax10').on('click', function () {
+                callAjax(10);
+            });
         });
-        $('#ajax10').on('click',function() {
-            callAjax(10);
-        });
-    });
-</script>
+    </script>
 </body>
+
 </html>
