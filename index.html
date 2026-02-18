@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Random 02/19-00:17</title>
+    <title>Random 02/19-00:21</title>
     <link rel="stylesheet" href="jquery-ajax.css" />
     <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
 </head>
@@ -10,11 +10,12 @@
 
 <style>
 .example{
-    font-size: 600%;
+    font-size: 400%;
 }
 </style>
 
-<p><button id="ajax" class="example">Open Random Playlist.</button></p>
+<p><button id="ajax05" class="example">Open Random Playlist.</button></p>
+<p><button id="ajax10" class="example">Open Random Playlist.</button></p>
 
 <div id="overlay">
   <div class="cv-spinner">
@@ -43,9 +44,12 @@
                     console.log("errorThrown    : " + errorThrown.message); // 例外情報を表示
                     })
                 .always( (data) => {
-                    setTimeout(function() {　$("#overlay").fadeOut(300);　}, 500);　});
+                    setTimeout(function() { $("#overlay").fadeOut(300); }, 500); });
         };
-        $('#ajax').on('click',function() {
+        $('#ajax05').on('click',function() {
+            callAjax(5);
+        });
+        $('#ajax10').on('click',function() {
             callAjax(10);
         });
     });
