@@ -2,53 +2,15 @@
 <html>
 <head>
     <base target="_top" />
-    <title>02/18-19:38</title>
+    <title>Random 02/18-21:22</title>
+    <link rel="stylesheet" href="jquery-ajax.css" />
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
 <h1>Random Youtube Playlist</h1>
 
 <!-- https://blog-and-destroy.com/7283#google_vignette -->
 <style>
-#button{
-  display:block;
-  margin:20px auto;
-  padding:10px 30px;
-  background-color:#eee;
-  border:solid #ccc 1px;
-  cursor: pointer;
-}
-#overlay{ 
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-  height:100%;
-  display: none;
-  background: rgba(0,0,0,0.6);
-}
-.cv-spinner {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-}
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px #ddd solid;
-  border-top: 4px #2e93e6 solid;
-  border-radius: 50%;
-  animation: sp-anime 0.8s infinite linear;
-}
-@keyframes sp-anime {
-  100% { 
-    transform: rotate(360deg); 
-  }
-}
-.is-hide{
-  display:none;
-}
 .example{
     font-size: 600%;
 }
@@ -66,42 +28,26 @@
         $(document).ajaxSend(function() {
             $("#overlay").fadeIn(300);
         });
-
-      // 「Ajax通信」ボタンをクリックしたら発動
-      $('#ajax').on('click',function(){
-        $.ajax({
-          crossDomain: true,
-          url:'https://script.google.com/macros/s/AKfycbyNMCEzjYxStidT-6J476J2eaZE8VzurkP3remN3m9Pb4USTD2dq8zaR6Q77gDuzZAn/exec',
-          type:'GET',
-          dataType: 'jsonp', // クロスドメイン制限を避けるため
-          data:{
-            'length': 3
-          }
-        })
-        // Ajax通信が成功したら発動
-        .done( (data) => {
-            // setTimeout(function() {
-            //     $("#overlay").fadeOut(300);
-            // }, 500);
-            //alert(JSON.stringify(data, null, 2));
-            //location.href=data.url;
-            window.open(data.url, '_blank', 'noopener');
-        })
-        // Ajax通信が失敗したら発動
-        .fail( (jqXHR, textStatus, errorThrown) => {
-          alert('Ajax通信に失敗しました。');
-          console.log("jqXHR          : " + jqXHR.status); // HTTPステータスを表示
-          console.log("textStatus     : " + textStatus);    // タイムアウト、パースエラーなどのエラー情報を表示
-          console.log("errorThrown    : " + errorThrown.message); // 例外情報を表示
-        })
-        // Ajax通信が成功・失敗のどちらでも発動
-        .always( (data) => {
-            setTimeout(function() {
-                $("#overlay").fadeOut(300);
-            }, 500);
+        $('#ajax').on('click',function(){
+            $.ajax({
+                //crossDomain: true,
+                url:'https://script.google.com/macros/s/AKfycbyNMCEzjYxStidT-6J476J2eaZE8VzurkP3remN3m9Pb4USTD2dq8zaR6Q77gDuzZAn/exec',
+                type:'GET',
+                dataType: 'jsonp', // クロスドメイン制限を避けるため
+                data:{　'length': 3　}
+                })
+                .done( (data) => {
+                    window.open(data.url, '_blank', 'noopener');})
+                .fail( (jqXHR, textStatus, errorThrown) => {
+                    alert('Ajax通信に失敗しました。');
+                    console.log("jqXHR          : " + jqXHR.status); // HTTPステータスを表示
+                    console.log("textStatus     : " + textStatus);    // タイムアウト、パースエラーなどのエラー情報を表示
+                    console.log("errorThrown    : " + errorThrown.message); // 例外情報を表示
+                    })
+                .always( (data) => {
+                    setTimeout(function() {　$("#overlay").fadeOut(300);　}, 500);　});
+            });
         });
-      });
-    });
 </script>
 </body>
 </html>
