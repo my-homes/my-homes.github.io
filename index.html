@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Random 02/19-00:27</title>
+    <title>Random 02/19-00:40</title>
     <link rel="stylesheet" href="jquery-ajax.css" />
     <script src="https://code.jquery.com/jquery-4.0.0.js"
         integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
@@ -27,6 +27,21 @@
         </div>
     </div>
     <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        // Get a single value
+        const color = urlParams.get('color');
+        console.log(color); // 'purple'
+        // Get all values for a parameter that appears multiple times
+        const sizes = urlParams.getAll('size');
+        console.log(sizes); // ['M', 'L']
+        // Check if a parameter exists
+        const hasColor = urlParams.has('color');
+        console.log(hasColor); // true
+        // Iterate over all parameters
+        for (const [key, value] of urlParams.entries()) {
+            console.log(`${key}: ${value}`);
+        }
         $(function () {
             $(document).ajaxSend(function () {
                 $("#overlay").fadeIn(300);
