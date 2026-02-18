@@ -1,5 +1,5 @@
 <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
-<h1>ハロー© 006</h1>
+<h1>ハロー© 007</h1>
 
 <p><button id="ajax">Ajax通信</button></p>
 
@@ -18,7 +18,7 @@
         })
         // Ajax通信が成功したら発動
         .done( (data) => {
-          alert(data);
+          alert(JSON.stringify(data));
         })
         // Ajax通信が失敗したら発動
         .fail( (jqXHR, textStatus, errorThrown) => {
