@@ -2,7 +2,7 @@
 <html>
 <head>
     <base target="_top" />
-    <title>02/18-19:49</title>
+    <title>02/18-19:38</title>
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
@@ -80,9 +80,9 @@
         })
         // Ajax通信が成功したら発動
         .done( (data) => {
-            setTimeout(function() {
-                $("#overlay").fadeOut(300);
-            }, 500);
+            // setTimeout(function() {
+            //     $("#overlay").fadeOut(300);
+            // }, 500);
             //alert(JSON.stringify(data, null, 2));
             //location.href=data.url;
             window.open(data.url, '_blank', 'noopener');
@@ -96,11 +96,9 @@
         })
         // Ajax通信が成功・失敗のどちらでも発動
         .always( (data) => {
-          if($('#answer').val() == '小松菜奈'){
-            console.log('あなたは正しい');
-          }else{
-            console.log('あなたは間違っている');
-          }
+            setTimeout(function() {
+                $("#overlay").fadeOut(300);
+            }, 500);
         });
       });
     });
