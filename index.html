@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Random 02/19-00:40</title>
+    <title>Random 02/19-00:57</title>
     <link rel="stylesheet" href="jquery-ajax.css" />
     <script src="https://code.jquery.com/jquery-4.0.0.js"
         integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
@@ -20,6 +20,7 @@
     <p><button id="ajax03" class="example">Random Playlist #03</button></p>
     <p><button id="ajax05" class="example">Random Playlist #05</button></p>
     <p><button id="ajax10" class="example">Random Playlist #10</button></p>
+    <p><button id="ajax50" class="example">Random Playlist #50</button></p>
 
     <div id="overlay">
         <div class="cv-spinner">
@@ -75,6 +76,9 @@
             });
             $('#ajax10').on('click', function () {
                 callAjax(10);
+            });
+            $('#ajax50').on('click', function () {
+                callAjax(50);
             });
         });
     </script>
