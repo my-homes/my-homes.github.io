@@ -2,7 +2,7 @@
 <html>
 <head>
     <base target="_top" />
-    <title>Random 02/19-00:01</title>
+    <title>Random 02/19-00:05</title>
     <link rel="stylesheet" href="jquery-ajax.css" />
     <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
 </head>
@@ -27,13 +27,13 @@
         $(document).ajaxSend(function() {
             $("#overlay").fadeIn(300);
         });
-        $('#ajax').on('click',function(){
+        function callAjax(len) {
             $.ajax({
                 //crossDomain: true,
                 url:'https://script.google.com/macros/s/AKfycby3PLSwXczX9DhNcbhlEhdJ0_Qc_4KiOZ2zu1PgzoUV9IPod7uBX8miQquPrp0KVJfQ/exec',
                 type:'GET',
                 dataType: 'jsonp', // クロスドメイン制限を避けるため
-                data:{　'length': 3　}
+                data:{　'length': len　}
                 })
                 .done( (data) => {
                     window.open(data.url, '_blank', 'noopener');})
@@ -46,6 +46,9 @@
                 .always( (data) => {
                     setTimeout(function() {　$("#overlay").fadeOut(300);　}, 500);　});
             });
+        }
+        $('#ajax').on('click',function() {
+            callAjax(10);
         });
 </script>
 </body>
