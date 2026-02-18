@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Random 02/19-00:57</title>
+    <title>Random 02/19-01:05</title>
     <link rel="stylesheet" href="jquery-ajax.css" />
     <script src="https://code.jquery.com/jquery-4.0.0.js"
         integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
@@ -17,10 +17,11 @@
         }
     </style>
 
-    <p><button id="ajax03" class="example">Random Playlist #03</button></p>
-    <p><button id="ajax05" class="example">Random Playlist #05</button></p>
-    <p><button id="ajax10" class="example">Random Playlist #10</button></p>
-    <p><button id="ajax50" class="example">Random Playlist #50</button></p>
+    <p><button id="ajax003" class="example">Random Playlist #003</button></p>
+    <p><button id="ajax005" class="example">Random Playlist #005</button></p>
+    <p><button id="ajax010" class="example">Random Playlist #010</button></p>
+    <p><button id="ajax050" class="example">Random Playlist #050</button></p>
+    <p><button id="ajax100" class="example">Random Playlist #100</button></p>
 
     <div id="overlay">
         <div class="cv-spinner">
@@ -68,17 +69,20 @@
                         setTimeout(function () { $("#overlay").fadeOut(300); }, 500);
                     });
             };
-            $('#ajax03').on('click', function () {
+            $('#ajax003').on('click', function () {
                 callAjax(3);
             });
-            $('#ajax05').on('click', function () {
+            $('#ajax005').on('click', function () {
                 callAjax(5);
             });
-            $('#ajax10').on('click', function () {
+            $('#ajax010').on('click', function () {
                 callAjax(10);
             });
-            $('#ajax50').on('click', function () {
+            $('#ajax050').on('click', function () {
                 callAjax(50);
+            });
+            $('#ajax100').on('click', function () {
+                callAjax(100);
             });
         });
     </script>
